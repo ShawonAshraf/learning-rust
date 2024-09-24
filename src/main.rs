@@ -53,7 +53,7 @@ fn looping_break() {
 }
 
 // okay a bubble sort fn
-fn bubble_sort(arr: &[i64]) {
+fn bubble_sort(arr: &[i64]) -> Vec<i64> {
     let size: usize = arr.len();
     // array size has to be a constant and known at
     // compile time. if the size is computed, use a vector
@@ -69,7 +69,7 @@ fn bubble_sort(arr: &[i64]) {
         }
     }
 
-    println!("Sorted array: {:?}", sorted_arr);
+    return sorted_arr;
 }
 
 fn main() {
@@ -79,5 +79,7 @@ fn main() {
     // looping_break();
 
     let arr: [i64; 5] = [23, 86, -1, 10, -100];
-    bubble_sort(&arr);
+    let sorted_arr: Vec<i64> = bubble_sort(&arr);
+    println!("Sorted array: {:?}", sorted_arr);
+
 }
