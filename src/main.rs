@@ -30,8 +30,54 @@ fn if_else() {
     println!("{number}")
 }
 
+
+// loops
+// there are 3 loops in rust, loop, while, for
+
+fn looping_break() {
+    // loop
+    let mut counter: i64 = 0;
+
+    // loop can return values with breaks
+    let result: i64 = loop {
+        counter += 1; // this works for a mutable type? 
+
+        if counter == 10 {
+            break counter * 2; // this will retrun the value from the loop
+            // but won't exit the function.
+            // only retrun will exit the function
+        }
+    };
+
+    println!("The result is {result}");
+}
+
+// okay a bubble sort fn
+fn bubble_sort(arr: &[i64]) {
+    let size: usize = arr.len();
+    // array size has to be a constant and known at
+    // compile time. if the size is computed, use a vector
+    let mut sorted_arr: Vec<i64> = arr.to_vec();
+
+    // yeah you can assign labels to loops
+    for i in 0..size  {
+        for j in 0..size - 1 - i {
+            if sorted_arr[j] > sorted_arr[j + 1] {
+                // yeah you can swap vector elements like that
+                sorted_arr.swap(j, j + 1);
+            }
+        }
+    }
+
+    println!("Sorted array: {:?}", sorted_arr);
+}
+
 fn main() {
     // arr_size();
     // statement_expression();
-    if_else();
+    // if_else();
+    // looping_break();
+
+    let arr: [i64; 5] = [23, 86, -1, 10, -100];
+    bubble_sort(&arr);
 }
