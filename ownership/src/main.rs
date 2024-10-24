@@ -16,7 +16,7 @@ fn main() {
     // this will throw an error
     // println!("{s}")
 
-    // this kind of ownership or refencing is similar to RAII in C++
+    // this kind of ownership or referencing is similar to RAII in C++
 
     let mut x: String = String::from("This is another string x");
     println!("Address of x -> {:p}", &x);
